@@ -1,8 +1,9 @@
 {
   "expo": {
-    "name": "jollofv2Mobile",
-    "slug": "jollofv2Mobile",
+    "name": "Jollof",
+    "slug": "jollof",
     "version": "1.0.0",
+    "scheme": "Jollof",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -22,9 +23,6 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
     }
   }
 }
