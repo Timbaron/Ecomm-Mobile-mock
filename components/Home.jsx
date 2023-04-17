@@ -1,14 +1,17 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react';
+import React, { useState } from 'react';
 import {Header, Banner, Categories, Products} from './'
 
 const Home = () => {
+  const [selectedCategoryId, setSelectedCategoryId] = useState(0);
+  const [products, setProducts] = useState([])
+
   return (
     <View style={styles.container}>
         <Header />
         <Banner />
-        <Categories />
-        <Products />
+        <Categories selectedCategoryId={selectedCategoryId} setSelectedCategoryId={setSelectedCategoryId} />
+        <Products products={products} />
       
     </View>
   )
