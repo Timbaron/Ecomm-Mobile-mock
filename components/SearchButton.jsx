@@ -1,10 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TextInput, View } from 'react-native'
 import React from 'react'
 
 const SearchButton = () => {
   return (
     <View>
-      <Text>SearchButton</Text>
+      <TextInput placeholder="Search for Item"/>
     </View>
   )
 }
