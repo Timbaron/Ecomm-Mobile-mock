@@ -1,9 +1,10 @@
 import Home from './Home';
 import Banner from './banner';
-import categories from './categories';
+import Categories from './Categories';
 import Footer from './footer';
 import Header from './Header';
 import Products from './Products';
 import Item from './item';
+import SearchButton from './SearchButton';
 
-export {Home,Banner,categories,Footer,Header,Products,Item}
+export {Home,Banner,Categories,Footer,Header,Products,Item, SearchButton}
