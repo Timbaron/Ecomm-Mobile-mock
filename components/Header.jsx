@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     width: "100%",
     height: "20%",
-    padding: 20,
+    paddingTop: 20,
     display: "flex",
     flexDirection: "column",
   },
