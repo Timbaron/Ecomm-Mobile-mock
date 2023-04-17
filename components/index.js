@@ -6,5 +6,6 @@ import Header from './Header';
 import Products from './Products';
 import Item from './item';
 import SearchButton from './SearchButton';
+import CustomButton from './CustomButton';
 
-export {Home,Banner,Categories,Footer,Header,Products,Item, SearchButton}
+export {Home,Banner,Categories,Footer,Header,Products,Item, SearchButton, CustomButton}
