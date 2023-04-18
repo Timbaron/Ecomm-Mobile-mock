@@ -1,57 +1,64 @@
-import { StyleSheet, Text, View } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
 import React from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+} from "react-native";
+import { Feather } from "@expo/vector-icons"; // Import Feather icon library
 import SearchButton from "./SearchButton";
 
-const Header = () => (
-  <>
-    <View style={styles.header}>
-      <View style={styles.mainHeader}>
-        <View style={styles.subHeader}>
-          <Text style={styles.welcome}>Welcome back!</Text>
-          <Text style={styles.name}> Akiode Timothy</Text>
+const Header = ({ userName }) => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <View style={styles.greetingContainer}>
+          <Text style={styles.greetingText}>Welcome back!</Text>
+          <Text style={styles.userName}>{userName}</Text>
         </View>
-        <View style={styles.bell}>
-          <AntDesign name="bells" size={20} color="black" />
-        </View>
+        <TouchableOpacity style={styles.notificationContainer}>
+          <Feather name="bell" size={24} color="#e08466" />
+        </TouchableOpacity>
       </View>
+
       <SearchButton />
     </View>
-  </>
-);
-
-export default Header;
+  );
+};
 
 const styles = StyleSheet.create({
-  header: {
-    backgroundColor: "transparent",
-    width: "100%",
-    height: "20%",
-    paddingTop: 20,
-    display: "flex",
+  container: {
     flexDirection: "column",
-  },
-  mainHeader: {
+    alignItems: "center",
     justifyContent: "space-between",
+    // paddingHorizontal: 10,
+    paddingVertical: 12,
+    backgroundColor: "white",
+  },
+  header: {
+    width: "100%",
     display: "flex",
     flexDirection: "row",
-    height: "75%"
+    justifyContent: "space-around",
   },
-  subHeader: {
-    MarginTop: 10,
-    height: "30%",
+  greetingContainer: {
     alignItems: "center",
     justifyContent: "center",
-    display: "flex",
-    // flexDirection: "row",
   },
-
-  welcome: {
-    color: "red",
-    fontSize: 20,
+  greetingText: {
+    fontSize: 18,
     fontWeight: "bold",
+    color: "#e08466"
   },
-  name: {
+  userName: {
+    fontSize: 15,
     fontWeight: "bold",
+    color: "black",
+  },
+  notificationContainer: {
+    marginLeft: "auto",
   },
 });
+
+export default Header;
