@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   item: {
-    height: 50,
+    height: 40,
     paddingHorizontal: 10,
     justifyContent: "center",
     backgroundColor: "grey",
@@ -62,6 +62,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   listContainer: {
-    height: 60
+    height: 40,
   }
 });
