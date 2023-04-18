@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { CategoriesList } from "../constants/categories";
 
-const Categories = ({selectedCategoryId, setSelectedCategoryId}) => {
+const Categories = ({selectedCategory, setSelectedCategory}) => {
   const renderItem = ({ item }) => {
     const categoryName = unslugAndTitleCase(item.name);
-    const backgroundColor = item.id === selectedCategoryId ? "#e08466" : "lightgrey";
-    const color = item.id === selectedCategoryId ? "white" : "black";
+    const backgroundColor = item.name === selectedCategory ? "#e08466" : "lightgrey";
+    const color = item.name === selectedCategory ? "white" : "black";
 
     const handlePress = () => {
-      setSelectedCategoryId(item.id);
+      setSelectedCategory(item.name);
     };
 
     return (
@@ -34,7 +34,7 @@ const Categories = ({selectedCategoryId, setSelectedCategoryId}) => {
   };
 
   return (
-    <View>
+    <View style={styles.listContainer}>
       <FlatList
         data={CategoriesList}
         renderItem={renderItem}
@@ -61,4 +61,7 @@ const styles = StyleSheet.create({
     minWidth:70,
     alignItems: "center",
   },
+  listContainer: {
+    height: 60
+  }
 });
