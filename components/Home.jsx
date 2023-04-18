@@ -23,7 +23,7 @@ const Home = () => {
 
   return (
     <View style={styles.container}>
-      <Header />
+      <Header userName="Akiode Timothy"/>
       <Banner />
       <Categories
         selectedCategory={selectedCategory}
