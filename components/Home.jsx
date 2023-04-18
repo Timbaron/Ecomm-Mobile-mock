@@ -8,10 +8,18 @@ import { ProductsList } from "../constants/products";
 
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [productsList, setProductsList] = useState();
+  const [productsList, setProductsList] = useState([]);
   useEffect(() => {
-    setProductsList(ProductsList[0].products)
-  },[])
+    if (selectedCategory !== "all") {
+      const productsList = ProductsList[0].products.filter(
+        (product) => product.category === selectedCategory
+      );
+      setProductsList(productsList);
+    }
+    else{ 
+      setProductsList(ProductsList[0].products);
+    }
+  }, [selectedCategory]);
 
   return (
     <View style={styles.container}>

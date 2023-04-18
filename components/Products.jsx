@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -7,7 +8,6 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
-import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 
 const Item = ({ item }) => {
@@ -19,15 +19,18 @@ const Item = ({ item }) => {
 
   return (
     <View style={styles.itemCard}>
-      <View style={{alignItems: 'center', padding: 5}}>
-      <Image
-        source={{ uri: item.images[0] }}
-        style={styles.image}
-        resizeMode="contain"
-      />
-      <TouchableOpacity onPress={onPressFavorite} style={styles.favoriteButton}>
-        <Text style={styles.favoriteIcon}>♡</Text>
-      </TouchableOpacity>
+      <View style={{ alignItems: "center", padding: 5 }}>
+        <Image
+          source={{ uri: item.images[0] }}
+          style={styles.image}
+          resizeMode="contain"
+        />
+        <TouchableOpacity
+          onPress={onPressFavorite}
+          style={styles.favoriteButton}
+        >
+          <Text style={styles.favoriteIcon}>♡</Text>
+        </TouchableOpacity>
       </View>
       <View style={styles.detailsOne}>
         <View style={styles.details}>
@@ -35,11 +38,9 @@ const Item = ({ item }) => {
           <Text style={styles.price}>${item.price}</Text>
         </View>
         <View style={styles.details}>
-          <Text style={{color: '#e08466'}}>
-            <Ionicons name="md-star" size={20} color="#e08466" />
-             ({item.rating})
+          <Text style={{ color: "#e08466" }}>
+            <Ionicons name="md-star" size={20} color="#e08466" />({item.rating})
           </Text>
-          <Text>egeg</Text>
         </View>
       </View>
     </View>
@@ -57,14 +58,21 @@ const Products = ({ products, numberOfDisplay }) => {
 
   return (
     <View style={styles.productsContainer}>
-      <FlatList
-        data={data}
-        renderItem={({ item }) => <Item item={item} />}
-        keyExtractor={(item) => item.id.toString()}
-        key={numColumns} // Set the key prop to force re-render when numColumns changes
-        numColumns={numColumns} // Set the number of columns
-        columnWrapperStyle={{ width: itemWidth }} // Set the width of each column
-      />
+      {data.length === 0 ? (
+        // Check if data array is empty
+        <View style={styles.noDataContainer}>
+          <Text style={styles.noDataText}>No data found</Text>
+        </View>
+      ) : (
+        <FlatList
+          data={data}
+          renderItem={({ item }) => <Item item={item} />}
+          keyExtractor={(item) => item.id.toString()}
+          key={numColumns} // Set the key prop to force re-render when numColumns changes
+          numColumns={numColumns} // Set the number of columns
+          columnWrapperStyle={{ width: itemWidth }} // Set the width of each column
+        />
+      )}
     </View>
   );
 };
@@ -76,7 +84,6 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 250,
     backgroundColor: "#FFFFFF",
-    // padding: 3,
     justifyContent: "space-between",
   },
   itemCard: {
@@ -113,20 +120,23 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    // alignItems: "center",
   },
   itemTitle: {
     flex: 1,
     fontSize: 12,
     fontWeight: "bold",
     marginRight: 10,
-    // backgroundColor: 'red',
     overflow: "hidden",
     whiteSpace: "nowrap",
     textOverflow: "ellipsis",
   },
-  // price: {
-  //   fontSize: 16,
-  //   fontWeight: 'bold',
-  // },
+  noDataContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  noDataText: {
+    fontSize: 18,
+    color: "gray",
+  },
 });
